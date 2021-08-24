@@ -1,0 +1,17 @@
+@mixin font-face($font-family, $url, $weight) {
+  @font-face {
+    font-family: "#{$font-family}";
+    src: url($fonts + "/#{$url}.otf") format("opentype");
+    font-weight: #{$weight};
+    font-display: swap;
+    font-style: normal;
+  }
+}
+
+// @include font-face("Manrope", "Manrope-Light", 300);
+// @include font-face("Manrope", "Manrope-Regular", 400);
+// @include font-face("Neue Machina", "NeueMachina-Regular", 400);
+// @include font-face("Neue Machina", "NeueMachina-Medium", 500);
+
+// $fontManrope: "Manrope", sans-serif;
+// $fontMachina: "Neue Machina", sans-serif;

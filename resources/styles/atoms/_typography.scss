@@ -1,0 +1,123 @@
+@mixin fontMachina($weight: 400) {
+  font-family: $fontMachina;
+  font-weight: $weight;
+}
+
+@mixin fontManrope($weight: 400) {
+  font-family: $fontManrope;
+  font-weight: $weight;
+}
+
+@mixin h1 {
+  font-size: 105px;
+  line-height: 105px;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 64px;
+    line-height: 64px;
+  }
+}
+
+@mixin h2 {
+  font-size: 82px;
+  line-height: 81px;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 50px;
+    line-height: 50px;
+  }
+}
+
+@mixin h3 {
+  font-size: 48px;
+  line-height: 56px;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 34px;
+    line-height: 40px;
+  }
+}
+
+@mixin h4 {
+  font-size: 30px;
+  line-height: 40px;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+@mixin caption {
+  font-size: 18px;
+  line-height: 18px;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 15px;
+    line-height: 15px;
+  }
+}
+
+@mixin body-bg {
+  font-size: 24px;
+  line-height: 34px;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 400;
+  }
+}
+
+@mixin body-sm {
+  font-size: 18px;
+  line-height: 25px;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+
+h1,
+.headline-1 {
+  @include fontMachina;
+  @include h1;
+}
+
+h2,
+.headline-2 {
+  @include fontMachina;
+  @include h2;
+}
+
+h3,
+.headline-3 {
+  @include fontMachina;
+  @include h3;
+}
+
+h4,
+.headline-4 {
+  @include fontMachina(500);
+  @include h4;
+}
+
+.caption {
+  @include fontMachina(500);
+  @include caption;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+p,
+.body-bg {
+  @include fontManrope(300);
+  @include body-bg;
+}
+
+span,
+.body-sm {
+  @include fontManrope;
+  @include body-sm;
+}

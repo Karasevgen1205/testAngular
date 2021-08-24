@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  margin-bottom: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+body {
+  position: relative;
+  height: 100%;
+  overflow-x: hidden;
+  color: $dark-blue;
+  background-color: $white;
+  font-family: $fontMachina;
+  min-height: 100vh;
+
+  &.overflow-hidden {
+    padding-right: 0px;
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+  }
+}
+
+main {
+  padding-bottom: 325px;
+
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 410px;
+  }
+}
+
+.bg-unset {
+  background-color: transparent !important;
+}

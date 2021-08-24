@@ -1,0 +1,22 @@
+// .tab {
+//   max-width: 170px;
+//   width: 100%;
+//   text-align: center;
+
+//   &:hover,
+//   &_active {
+//     background-color: $linen;
+//     color: $blue;
+//   }
+
+//   &:last-child {
+//     margin-right: 0 !important;
+//   }
+// }
+
+// @include media-breakpoint-down(lg) {
+//   .tab {
+//     // max-width: unset;
+//     max-width: max-content;
+//   }
+// }

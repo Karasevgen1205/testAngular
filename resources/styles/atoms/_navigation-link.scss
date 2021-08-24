@@ -1,0 +1,31 @@
+// .navigation__link {
+//   @include fontMachina(500);
+//   font-size: 18px;
+//   line-height: 18px;
+//   color: $blue;
+//   cursor: pointer;
+//   text-decoration: none;
+//   letter-spacing: 0.05em;
+
+//   &:last-child {
+//     margin-right: 0;
+//   }
+
+//   &:hover {
+//     @include hit-left();
+//   }
+// }
+
+// @include media-breakpoint-down(lg) {
+//   .navigation__link {
+//     @include fontMachina(400);
+//     font-size: 50px;
+//     line-height: 50px;
+//   }
+// }
+
+// @include media-breakpoint-down(sm) {
+//   .navigation__link {
+//     letter-spacing: 0;
+//   }
+// }

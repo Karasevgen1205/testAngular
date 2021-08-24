@@ -1,0 +1,84 @@
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@mixin link-with-arrow-content($color) {
+  content: "";
+  width: 50px;
+  height: 18px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url($icons + "/arrow-#{$color}.svg");
+}
+
+@mixin link-with-arrow($color: "blue", $content: "after") {
+  white-space: nowrap;
+
+  @if ($content == "after") {
+    &:after {
+      margin-left: 10px;
+      @include link-with-arrow-content($color);
+    }
+  } @else {
+    &:before {
+      margin-right: 10px;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+      @include link-with-arrow-content($color);
+    }
+  }
+}
+
+@mixin link($color: $blue) {
+  @include fontManrope;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.link {
+  @include fontManrope;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.7px;
+  width: max-content;
+
+  &_blue {
+    color: $blue;
+  }
+
+  &_orange {
+    color: $orange;
+  }
+
+  &_gray {
+    color: $gray;
+  }
+}
+
+.link-with-arrow {
+  display: inline-flex;
+  align-items: baseline;
+
+  &_blue {
+    @include link-with-arrow();
+  }
+
+  &_orange {
+    @include link-with-arrow("orange");
+  }
+
+  &_yellow {
+    @include link-with-arrow("yellow");
+  }
+
+  &_gray {
+    @include link-with-arrow("gray");
+  }
+
+  &_before {
+    @include link-with-arrow($color: "blue", $content: "before");
+  }
+}

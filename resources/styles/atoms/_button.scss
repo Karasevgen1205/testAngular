@@ -1,0 +1,87 @@
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
+
+  width: 100%;
+  resize: none;
+  background: none;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  @include fontMachina;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 9px 19px;
+  font-size: 14px;
+  line-height: 14px;
+  border-radius: 20.5px;
+  border: 1px solid $linen;
+  background-color: $blue;
+  color: $linen;
+  transition: background-color 0.3s, color 0.3s;
+  width: max-content;
+  flex-shrink: 0;
+
+  // &_txt {
+  //   &-dark {
+  //     color: $dark-blue;
+  //   }
+
+  //   &-blue {
+  //     color: $blue;
+  //   }
+  // }
+
+  // &_bg {
+  //   &-yellow {
+  //     background-color: $yellow;
+  //   }
+
+  //   &-linen {
+  //     background-color: $linen;
+  //   }
+
+  //   &-dark-blue {
+  //     background-color: $dark-blue;
+  //   }
+  // }
+
+  // &_border {
+  //   &-dark {
+  //     border: 1px solid $dark-blue;
+  //   }
+
+  //   &-blue {
+  //     border: 1px solid $blue;
+  //   }
+  // }
+
+  // &_lg {
+  //   font-size: 20px;
+  //   line-height: 20px;
+  //   padding: 11px 10px 9px;
+
+  //   @include media-breakpoint-down(lg) {
+  //     font-size: 18px;
+  //     line-height: 18px;
+  //     padding: 11px 19px;
+  //     letter-spacing: 0.03em;
+  //   }
+  // }
+}

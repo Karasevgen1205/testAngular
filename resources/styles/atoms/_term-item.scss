@@ -1,0 +1,21 @@
+// .term-item {
+//   @include fontMachina(500);
+//   font-size: 16px;
+//   line-height: 16px;
+
+//   letter-spacing: 0.05em;
+//   text-transform: uppercase;
+//   margin-bottom: 5px;
+//   display: inline-flex;
+
+//   &:not(:last-child) {
+//     &:after {
+//       content: "";
+//       display: block;
+//       width: 19px;
+//       margin: auto 10px 3px;
+//       height: 1px;
+//       background-color: $dark-blue;
+//     }
+//   }
+// }
