@@ -1,3 +1,66 @@
 .test {
-  height: 0;
+  &__wrapper {
+    flex-direction: column;
+  }
+
+  &__all-buttons {
+    display: flex;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  &__btn {
+    display: block;
+    margin: auto;
+    text-decoration: none;
+    color: burlywood;
+    padding: 35px 45px;
+    border-radius: 3px;
+    font-size: 40px;
+    background-color: rgb(87, 71, 51);
+    transition: all 0.3s linear;
+
+    &:hover {
+      background-color: rgb(67, 54, 38);
+      color: rgb(248, 206, 150);
+    }
+  }
+
+  &__btn-all-repos {
+  }
+
+  &__btn-all-contrib {
+  }
+
+  &__list {
+    display: flex;
+
+    &-repos {
+      width: 50%;
+      margin-left: 15%;
+    }
+
+    &-contrib {
+      width: 50%;
+      margin-left: 15%;
+    }
+  }
+
+  &__item {
+    margin: 10px;
+  }
+
+  &__name {
+    font-size: 21px;
+    line-height: 21px;
+  }
+
+  &__img {
+    width: 100px;
+    height: 100px;
+  }
 }

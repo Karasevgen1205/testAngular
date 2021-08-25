@@ -1,15 +1,15 @@
-// import { EMPTY, fromEvent } from "rxjs";
-// import {
-//   map,
-//   debounceTime,
-//   distinctUntilChanged,
-//   switchMap,
-//   mergeMap,
-//   tap,
-//   catchError,
-//   filter,
-// } from "rxjs/operators";
-// import { ajax } from "rxjs/ajax";
+import { EMPTY, fromEvent } from "rxjs";
+import {
+  map,
+  debounceTime,
+  distinctUntilChanged,
+  switchMap,
+  mergeMap,
+  tap,
+  catchError,
+  filter,
+} from "rxjs/operators";
+import { ajax } from "rxjs/ajax";
 
 export default class Test {
   constructor() {
@@ -17,11 +17,120 @@ export default class Test {
   }
 
   init() {
-    const url = "https://api.github.com/orgs/angular/repos";
+    const url = "https://api.github.com/orgs/angular/repos?per_page=100&page=";
+    const testUrl =
+      "https://api.github.com/orgs/angular/repos?per_page=5&page=1";
+    const wrapper = document.querySelector(".test__wrapper");
+    const btnAllRepos = document.querySelector(".test__btn-all-repos");
+    const btnAllContrib = document.querySelector(".test__btn-all-contrib");
+    const listRepos = document.querySelector(".test__list-repos");
+    const listContrib = document.querySelector(".test__list-contrib");
+
+    btnAllRepos.addEventListener("click", (event) => {
+      event.preventDefault();
+      getAllRepos(url);
+    });
+
+    btnAllContrib.addEventListener("click", (event) => {
+      event.preventDefault();
+      // getAllContrib(url);
+      getAllContrib(testUrl);
+    });
+
+    function getAllRepos(url) {
+      listRepos.innerHTML = "";
+      for (let i = 1; i < 3; i++) {
+        fetch(url + i)
+          .then((response) => response.json())
+          .then((json) => {
+            json.forEach((item) => {
+              listRepos.insertAdjacentHTML(
+                "beforeend",
+                `<li class="test__item">${item.name}</li>`
+              );
+            });
+          });
+      }
+    }
+
+    function getAllContrib(testUrl) {
+      const listLogin = [];
+      fetch(testUrl)
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json);
+          json.forEach((item) => {
+            fetch(item.contributors_url)
+              .then((response) => response.json())
+              .then((json) => {
+                json.forEach((item) => {
+                  if (!listLogin.includes(item.login)) {
+                    listLogin.push(item.login);
+                    listContrib.insertAdjacentHTML(
+                      "beforeend",
+                      `
+                    <li class="test__item">
+                      <span class="test__name">${item.login}</span>
+                      <img class="test__img" src="${item.avatar_url}" alt="">
+                    </li>
+                    `
+                    );
+                  }
+                });
+              });
+          });
+        });
+    }
+
+    // function getAllContrib(url) {
+    //   listContrib.innerHTML = "";
+    //   const listLogin = [];
+    //   for (let i = 1; i < 3; i++) {
+    //     fetch(url + i)
+    //       .then((response) => response.json())
+    //       .then((json) => {
+    //         json.forEach((item) => {
+    //           fetch(item.contributors_url)
+    //             .then((response) => response.json())
+    //             .then((json) => {
+    //               json.forEach((item) => {
+    //                 if (!listLogin.includes(item.login)) {
+    //                   listLogin.push(item.login);
+    //                   listContrib.insertAdjacentHTML(
+    //                     "beforeend",
+    //                     `
+    //                   <li class="test__item">
+    //                     <span class="test__name">${item.login}</span>
+    //                     <img class="test__img" src="${item.avatar_url}" alt="">
+    //                   </li>
+    //                   `
+    //                   );
+    //                 }
+    //               });
+    //             });
+    //         });
+    //       });
+    //   }
+    // }
+
+    //////////////////////////////////////////////////////////////////
+
+    // const stream$ = fromEvent(search, "click").pipe(
+    //   switchMap((v) => ajax.getJSON(url + 1))
+    // );
+    //     map((e) => e.target.value),
+    //     debounceTime(1000),
+    //     distinctUntilChanged(),
+    //     tap(() => (result.innerHTML = "")),
+    //     filter((v) => v.trim()),
+    //     switchMap((v) => ajax.getJSON(url + v).pipe(catchError((err) => EMPTY))),
+    //     map((response) => response.items),
+    //     mergeMap((items) => items)
+    // ();
 
     //   const url = "https://api.github.com/search/users?q=";
 
-    //   const search = document.getElementById("search");
+    // const search = document.getElementById(".test__wrapper");
     //   const result = document.getElementById("result");
 
     //   const stream$ = fromEvent(search, "input").pipe(
@@ -53,11 +162,6 @@ export default class Test {
     // const response = await fetch(url);
     // const repositories = await response.json();
     // console.log(repositories);
-    // fetch(url)
-    //   .then((response) => response.json())
-    //   .then((json) => {
-    //     console.log(json);
-    //   });
 
     // function createRepoList(list, parent) {
     //   parent.innerHTML = "";
@@ -71,60 +175,3 @@ export default class Test {
     // console.log("OK");
   }
 }
-
-// const url = "https://github.com/angular​";
-
-fetch("https://github.com/orgs/angular/repos")
-  .then((response) => response.json())
-  .then((json) => console.log(json));
-
-// Пример отправки POST запроса:
-// async function postData(url = "", data = {}) {
-//   // Default options are marked with *
-//   const response = await fetch(url, {
-//     method: "GET", // *GET, POST, PUT, DELETE, etc.
-//     mode: "cors", // no-cors, *cors, same-origin
-//     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-//     credentials: "same-origin", // include, *same-origin, omit
-//     headers: {
-//       "Content-Type": "application/json",
-//       // 'Content-Type': 'application/x-www-form-urlencoded',
-//     },
-//     redirect: "follow", // manual, *follow, error
-//     referrerPolicy: "no-referrer", // no-referrer, *client
-//     body: JSON.stringify(data), // body data type must match "Content-Type" header
-//   });
-//   return await response.json(); // parses JSON response into native JavaScript objects
-// }
-
-// postData("https://github.com/orgs/angular/repos", { answer: 42 }).then(
-//   (data) => {
-//     console.log(data); // JSON data parsed by `response.json()` call
-//   }
-// );
-
-// const url = "https://github.com/angular";
-// const repositories = [];
-
-// function getRepos(url) {
-// fetch(url)
-// .then((response) => response.json())
-// .then((rep) => console.log(rep));
-// for (let i = 0; i < movieDB.movies.length; i++) {
-//       let a = movieDB.movies[i].toLowerCase();
-//       movieDB.movies.splice(i, 1, a);
-//     }
-// console.log(rep);
-// }
-// getRepos(url);
-
-// const wrapper = document.querySelector(".test__wrapper");
-
-// wrapper.insertAdjacentHTML(
-//   "afterbegin",
-//   `<div class="test__item">${repositories}</div>`
-// );
-// console.log(repositories[20].contributors_url);
-// repositories.forEach((item) => {
-//   console.log(item.contributors_url);
-// });
