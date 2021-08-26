@@ -42,17 +42,31 @@
 
     &-repos {
       width: 50%;
-      margin-left: 15%;
+      margin-left: 7%;
     }
 
     &-contrib {
       width: 50%;
-      margin-left: 15%;
+      margin-left: 7%;
     }
   }
 
   &__item {
     margin: 10px;
+    font-size: 32px;
+  }
+
+  &__link {
+    display: block;
+    color: burlywood;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(67, 54, 38);
+    }
+
+    &_renos {
+    }
   }
 
   &__name {

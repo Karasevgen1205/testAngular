@@ -28,7 +28,8 @@ export default class Test {
 
     btnAllRepos.addEventListener("click", (event) => {
       event.preventDefault();
-      getAllRepos(url);
+      // getAllRepos(url);
+      getAllRepos(testUrl);
     });
 
     btnAllContrib.addEventListener("click", (event) => {
@@ -37,16 +38,54 @@ export default class Test {
       getAllContrib(testUrl);
     });
 
+    listRepos.addEventListener("click", (event) => {
+      event.preventDefault();
+      let target = event.target;
+      if (target && target.classList.contains("test__link_renos")) {
+        const links = document.querySelectorAll(".test__link_renos");
+        links.forEach((item, i) => {
+          if (target == item) {
+            let url = localStorage.getItem(item.innerHTML);
+            getAllUsersForOneRepos(url);
+          }
+        });
+      }
+    });
+
+    function getAllUsersForOneRepos(url) {
+      listRepos.innerHTML = "";
+      fetch(url)
+        .then((response) => response.json())
+        .then((json) => {
+          json.forEach((item) => {
+            listRepos.insertAdjacentHTML(
+              "beforeend",
+              `
+              <li class="test__item">
+                <span class="test__name">${item.login}</span>
+                <img class="test__img" src="${item.avatar_url}" alt="">
+              </li>
+              `
+            );
+          });
+        });
+    }
+
     function getAllRepos(url) {
       listRepos.innerHTML = "";
       for (let i = 1; i < 3; i++) {
-        fetch(url + i)
+        fetch(url + i);
+        fetch(url)
           .then((response) => response.json())
           .then((json) => {
             json.forEach((item) => {
+              localStorage.setItem(item.name, item.contributors_url);
+
               listRepos.insertAdjacentHTML(
                 "beforeend",
-                `<li class="test__item">${item.name}</li>`
+                `<li class="test__item">
+                  <span class="test__link test__link_renos">${item.name}</span>
+                </li>`
               );
             });
           });
