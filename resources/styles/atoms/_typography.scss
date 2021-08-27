@@ -1,12 +1,12 @@
-@mixin fontMachina($weight: 400) {
-  font-family: $fontMachina;
-  font-weight: $weight;
-}
+// @mixin fontMachina($weight: 400) {
+//   font-family: $fontMachina;
+//   font-weight: $weight;
+// }
 
-@mixin fontManrope($weight: 400) {
-  font-family: $fontManrope;
-  font-weight: $weight;
-}
+// @mixin fontManrope($weight: 400) {
+//   font-family: $fontManrope;
+//   font-weight: $weight;
+// }
 
 @mixin h1 {
   font-size: 105px;
@@ -81,30 +81,30 @@
 
 h1,
 .headline-1 {
-  @include fontMachina;
+  // @include fontMachina;
   @include h1;
 }
 
 h2,
 .headline-2 {
-  @include fontMachina;
+  // @include fontMachina;
   @include h2;
 }
 
 h3,
 .headline-3 {
-  @include fontMachina;
+  // @include fontMachina;
   @include h3;
 }
 
 h4,
 .headline-4 {
-  @include fontMachina(500);
+  // @include fontMachina(500);
   @include h4;
 }
 
 .caption {
-  @include fontMachina(500);
+  // @include fontMachina(500);
   @include caption;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -112,12 +112,12 @@ h4,
 
 p,
 .body-bg {
-  @include fontManrope(300);
+  // @include fontManrope(300);
   @include body-bg;
 }
 
 span,
 .body-sm {
-  @include fontManrope;
+  // @include fontManrope;
   @include body-sm;
 }

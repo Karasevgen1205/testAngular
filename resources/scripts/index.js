@@ -1,5 +1,6 @@
 import LottiePlayer from "./shared/lottie-player.js";
 import Test from "./shared/test.js";
+import OneVideo from "./shared/one-video.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   window.refs = {
@@ -10,6 +11,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     test: {
       init: () => new Test(),
       selectors: [".test"],
+    },
+    oneVideo: {
+      init: () => new OneVideo(),
+      selectors: [".one-video__video"],
     },
   };
 

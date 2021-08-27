@@ -1,14 +1,15 @@
 // @import "/node_modules/swiper/swiper";
 // @import "/node_modules/swiper/components/effect-fade/effect-fade";
+@import "/node_modules/video.js/dist/video-js";
 
 // /* Config */
 @import "config/bootstrap";
 @import "/node_modules/bootstrap/scss/bootstrap-grid";
 // @import "config/paths";
-// @import "config/colors";
+@import "config/colors";
 // @import "config/fonts";
 // @import "config/gutters";
-// @import "config/general";
+@import "config/general";
 // @import "config/mixins";
 
 /* Helpers */
@@ -27,6 +28,7 @@
 // @import "atoms/vertical-lines";
 
 /* Molecules */
+@import "molecules/one-video";
 
 /* Organisms */
 @import "organisms/test";

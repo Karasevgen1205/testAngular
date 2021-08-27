@@ -73,23 +73,23 @@ export default class Test {
 
     function getAllRepos(url) {
       listRepos.innerHTML = "";
-      for (let i = 1; i < 3; i++) {
-        fetch(url + i);
-        fetch(url)
-          .then((response) => response.json())
-          .then((json) => {
-            json.forEach((item) => {
-              localStorage.setItem(item.name, item.contributors_url);
+      // for (let i = 1; i < 3; i++) {
+      // fetch(url + i);
+      fetch(url)
+        .then((response) => response.json())
+        .then((json) => {
+          json.forEach((item) => {
+            localStorage.setItem(item.name, item.contributors_url);
 
-              listRepos.insertAdjacentHTML(
-                "beforeend",
-                `<li class="test__item">
+            listRepos.insertAdjacentHTML(
+              "beforeend",
+              `<li class="test__item">
                   <span class="test__link test__link_renos">${item.name}</span>
                 </li>`
-              );
-            });
+            );
           });
-      }
+        });
+      // }
     }
 
     function getAllContrib(testUrl) {
