@@ -7,12 +7,110 @@
     line-height: 65px;
   }
 
-  // &__video {
-  // width: 100%;
-  // height: 100%;
-  // margin-right: -10px;
-  // margin-left: -10px;
-  // }
+  &__video {
+    will-change: opacity;
+
+    .vjs-control {
+      width: 7em;
+    }
+
+    .vjs-time-control {
+      width: 4em;
+      font-size: 2.5em;
+      line-height: 3em;
+      padding: 0;
+    }
+    .vjs-big-play-button {
+      top: calc(50% - 52px);
+      left: calc(50% - 52px);
+      height: 104px;
+      width: 104px;
+      border: none;
+      border-radius: 50%;
+      background-color: #f5f6fa;
+      color: rgba(28, 26, 18, 0.9);
+      font-size: 7em;
+    }
+
+    &:hover {
+      .vjs-big-play-button {
+        opacity: 0.6;
+        background-color: #f5f6fa;
+        transition: all 0.2s linear;
+      }
+    }
+
+    .vjs-control-bar {
+      height: 8em;
+      background-color: rgba($color: #000000, $alpha: 0);
+
+      .vjs-play-control,
+      .vjs-picture-in-picture-control,
+      .vjs-fullscreen-control {
+        .vjs-icon-placeholder {
+          &:before {
+            font-size: 5em;
+          }
+        }
+      }
+
+      .vjs-progress-control {
+        margin-left: 25px;
+      }
+
+      .vjs-volume-horizontal {
+        top: 25px;
+      }
+
+      .vjs-volume-panel {
+        .vjs-control {
+          .vjs-icon-placeholder {
+            &:before {
+              font-size: 5em;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__change-poster {
+    .vjs-big-play-button {
+      display: block;
+    }
+
+    .vjs-control-bar {
+      display: block;
+      // display: none;
+
+      .vjs-play-control {
+        display: none;
+      }
+
+      .vjs-volume-panel {
+        display: none;
+      }
+
+      .vjs-progress-control {
+        display: block;
+        width: 88%;
+        top: -2em;
+        margin: 0 auto;
+
+        .vjs-progress-holder {
+          background-color: rgba(222, 216, 231, 0.4);
+          height: 5px;
+
+          .vjs-play-progress {
+            background: rgba(222, 216, 231, 0.8);
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 // @mixin fake-tools($padding-x: $container-padding-x) {
