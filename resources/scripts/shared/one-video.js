@@ -6,7 +6,6 @@ export default class OneVideo {
   }
 
   init() {
-    // console.log("video-ok");
     const manyVideo = document.querySelectorAll(".one-video__video");
     manyVideo.forEach((oneVideo) => {
       const player = videojs(oneVideo, {
@@ -30,20 +29,20 @@ export default class OneVideo {
         oneVideo.classList.remove("one-video__change-poster");
       });
 
-      player.on("play", function () {
-        // oneVideo.classList.remove("one-video__change-poster");
-        // console.log("play");
-      });
+      // player.on("play", function () {
+      // oneVideo.classList.remove("one-video__change-poster");
+      // console.log("play");
+      // });
 
-      player.on("pause", function () {
-        // oneVideo.classList.add("one-video__change-poster");
-        // console.log("pause");
-      });
+      // player.on("pause", function () {
+      // oneVideo.classList.add("one-video__change-poster");
+      // console.log("pause");
+      // });
 
-      const l = document.querySelector(".vjs-play-control");
-      l.addEventListener("click", () => {
-        // oneVideo.classList.toggle("one-video__change-poster");
-      });
+      // const l = document.querySelector(".vjs-play-control");
+      // l.addEventListener("click", () => {
+      // oneVideo.classList.toggle("one-video__change-poster");
+      // });
 
       // oneVideo.addEventListener("click", (event) => {
       // let target = event.target;
@@ -85,7 +84,7 @@ export default class OneVideo {
       //   });
       // });
 
-      const fullScreen = document.querySelector(".full-screen");
+      const fullScreen = document.querySelector(".one-video__full-screen");
       fullScreen.addEventListener("click", () => {
         player.ready(() => {
           player.requestFullscreen();

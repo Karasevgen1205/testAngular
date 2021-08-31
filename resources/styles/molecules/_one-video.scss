@@ -11,13 +11,13 @@
     will-change: opacity;
 
     .vjs-control {
-      width: 7em;
+      width: 6em;
     }
 
     .vjs-time-control {
-      width: 4em;
-      font-size: 2.5em;
-      line-height: 3em;
+      width: 3em;
+      font-size: 2em;
+      line-height: 3.4em;
       padding: 0;
     }
     .vjs-big-play-button {
@@ -41,7 +41,7 @@
     }
 
     .vjs-control-bar {
-      height: 8em;
+      height: 7em;
       background-color: rgba($color: #000000, $alpha: 0);
 
       .vjs-play-control,
@@ -49,7 +49,7 @@
       .vjs-fullscreen-control {
         .vjs-icon-placeholder {
           &:before {
-            font-size: 5em;
+            font-size: 4em;
           }
         }
       }
@@ -59,14 +59,14 @@
       }
 
       .vjs-volume-horizontal {
-        top: 25px;
+        top: 20px;
       }
 
       .vjs-volume-panel {
         .vjs-control {
           .vjs-icon-placeholder {
             &:before {
-              font-size: 5em;
+              font-size: 4em;
             }
           }
         }
